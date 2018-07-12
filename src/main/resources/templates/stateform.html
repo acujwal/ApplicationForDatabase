@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+</head>
+<body>
+
+<div>
+    <a href="/">Home</a><br>
+</div>
+
+<div class="container jumbotron">
+    <h1 class="text-center">Search Customers</h1>
+    <div class="col-md-6 col-md-offset-3">
+        <form th:action="@{/stateprocess}" method="post" action="#">
+            <div>Enter State <span class="text-success"></span></div>
+
+            <label>Search From State</label><input type="text" name="state"/>
+            <input type="submit" text="Submit"/>
+        </form>
+
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Full Name</th>
+            <th>State</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="list:${liststate}">
+            <td th:text="${list.title}"></td>
+            <td th:text="${list.fullname}"></td>
+            <td th:text="${list.state}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
